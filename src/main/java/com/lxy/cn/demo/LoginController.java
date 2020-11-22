@@ -36,7 +36,7 @@ public class LoginController {
     public String ret(Model model, String username, String password, HttpSession session) {
         System.out.println("RETURN total:" + total);
         List<User> list = getUser(session);
-        if(list!=null) {
+        if (list != null) {
             model.addAttribute("users", list);
         }
         return "index";
@@ -49,7 +49,7 @@ public class LoginController {
         System.out.println("total:" + total);
 
         List<User> list = getUser(session);
-        if(list!=null) {
+        if (list != null) {
             model.addAttribute("users", list);
         }
 
@@ -68,16 +68,30 @@ public class LoginController {
         return null;
     }
 
+    @GetMapping("/edit")
+    public String edit(Model model, String id, HttpSession session) {
+        System.out.println("edit" + id);
+        User user = (User) session.getAttribute(id);
+        session.removeAttribute(id);
+        model.addAttribute("xingming",user.getName());
+        model.addAttribute("dianhua",user.getPhone());
+        model.addAttribute("youxiang",user.getMail());
+        model.addAttribute("zhuzhi",user.getAddress());
+        model.addAttribute("qqhao",user.getQq());
+        model.addAttribute("idhao",user.getId());
+        return "details";
+    }
+
     public List<User> getUser(HttpSession session) {
         List<User> list = new ArrayList<User>();
         for (int i = 0; i < total; i++) {
             User temp = (User) session.getAttribute(Integer.toString(i));
-            while(temp==null&&i<total){
+            while (temp == null && i < total) {
                 i++;
                 temp = (User) session.getAttribute(Integer.toString(i));
             }
-            if(temp!=null){
-                System.out.println(temp.getId() +" "+ temp.getName() +" "+ temp.getPhone() +" "+ temp.getMail() +" "+ temp.getAddress() +" "+ temp.getQq());
+            if (temp != null) {
+                System.out.println(temp.getId() + " " + temp.getName() + " " + temp.getPhone() + " " + temp.getMail() + " " + temp.getAddress() + " " + temp.getQq());
                 list.add(temp);
             }
         }

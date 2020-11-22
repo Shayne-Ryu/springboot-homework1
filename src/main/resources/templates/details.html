@@ -19,19 +19,19 @@
     <h1>添加联系人</h1>
     <ul>
         <li class="fn-clear">
-            <p class="fn-left">姓名</p><input class="fn-left" type="text" placeholder="请输入姓名">
+            <p class="fn-left">姓名</p><input class="fn-left" type="text" placeholder="请输入姓名" th:value="${xingming}">
         </li>
         <li class="fn-clear">
-            <p class="fn-left">电话</p><input class="fn-left" type="text" placeholder="请输入电话">
+            <p class="fn-left">电话</p><input class="fn-left" type="text" placeholder="请输入电话" th:value="${dianhua}">
         </li>
         <li class="fn-clear">
-            <p class="fn-left">邮箱</p><input class="fn-left" type="text" placeholder="请输入邮箱">
+            <p class="fn-left">邮箱</p><input class="fn-left" type="text" placeholder="请输入邮箱" th:value="${youxiang}">
         </li>
         <li class="fn-clear">
-            <p class="fn-left">住址</p><input class="fn-left" type="text" placeholder="请输入住址">
+            <p class="fn-left">住址</p><input class="fn-left" type="text" placeholder="请输入住址" th:value="${zhuzhi}">
         </li>
         <li class="fn-clear">
-            <p class="fn-left">qq号</p><input class="fn-left" type="text" placeholder="请输入QQ号">
+            <p class="fn-left">qq号</p><input class="fn-left" type="text" placeholder="请输入QQ号" th:value="${qqhao}"><p hidden th:text="${idhao}"></p>
         </li>
     </ul>
     <button class="submit">提交</button>

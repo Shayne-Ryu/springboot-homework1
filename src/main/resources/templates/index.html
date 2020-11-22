@@ -6,8 +6,14 @@
         $("[id^=shanchu]").click(function () {
             $(this).parent().parent().hide();
             const id1 = $(this).siblings("p").text();
-            $.get("http://localhost:8080/delete", {id: id1});
+            $.get("http://localhost:8080/delete", {id: id1},);
         });
+
+        $("[id^=bianji]").click(function () {
+            const id1 = $(this).siblings("p").text();
+            window.location.href='http://localhost:8080/edit?id='+id1
+        });
+
     });
 
     $(function () {
