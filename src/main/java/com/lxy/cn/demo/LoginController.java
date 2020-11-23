@@ -14,7 +14,7 @@ public class LoginController {
 
     public int total = 0;
 
-    @RequestMapping("/*")
+    @RequestMapping("/login")
     public String index(Model model, HttpSession session) {
         return "login";
     }
@@ -54,6 +54,7 @@ public class LoginController {
         }
 
         if (username.equals("123456") && password.equals("111111")) {
+            session.setAttribute("USER","1");
             return "index";
         } else {
             return "login";
